@@ -1,6 +1,6 @@
 name: RebornMySQLInventories
 main: net.craftersland.bridge.inventory.Inv
-version: 2.5.0
+version: 2.5.1
 author: Brunyman (Original) | Reborn Community (1.21) by alexcuadroo
 website: https://github.com/brunyman/InventoryBridge
 load: STARTUP

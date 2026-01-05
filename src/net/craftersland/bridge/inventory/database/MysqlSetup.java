@@ -28,8 +28,8 @@ public class MysqlSetup {
 	public void connectToDatabase() {
 		Inv.log.info("Conectando a la base de datos...");
 		try {
-       	 	//Load Drivers
-            Class.forName("com.mysql.jdbc.Driver");
+			//Load Drivers (modern MySQL 8 / JDBC 4.2)
+			Class.forName("com.mysql.cj.jdbc.Driver");
             Properties properties = new Properties();
             properties.setProperty("user", eco.getConfigHandler().getString("database.mysql.user"));
             properties.setProperty("password", eco.getConfigHandler().getString("database.mysql.password"));
@@ -37,6 +37,7 @@ public class MysqlSetup {
             properties.setProperty("verifyServerCertificate", "false");
             properties.setProperty("useSSL", eco.getConfigHandler().getString("database.mysql.sslEnabled"));
             properties.setProperty("requireSSL", eco.getConfigHandler().getString("database.mysql.sslEnabled"));
+			properties.setProperty("serverTimezone", "UTC");
             //Connect to database
             conn = DriverManager.getConnection("jdbc:mysql://" + eco.getConfigHandler().getString("database.mysql.host") + ":" + eco.getConfigHandler().getString("database.mysql.port") + "/" + eco.getConfigHandler().getString("database.mysql.databaseName"), properties);
            
@@ -103,7 +104,7 @@ public class MysqlSetup {
 			
 		    start = System.currentTimeMillis();
 		    Inv.log.info("Intentando establecer una conexión con el servidor MySQL!");
-            Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
             Properties properties = new Properties();
             properties.setProperty("user", eco.getConfigHandler().getString("database.mysql.user"));
             properties.setProperty("password", eco.getConfigHandler().getString("database.mysql.password"));
@@ -111,6 +112,7 @@ public class MysqlSetup {
             properties.setProperty("verifyServerCertificate", "false");
             properties.setProperty("useSSL", eco.getConfigHandler().getString("database.mysql.sslEnabled"));
             properties.setProperty("requireSSL", eco.getConfigHandler().getString("database.mysql.sslEnabled"));
+			properties.setProperty("serverTimezone", "UTC");
             //properties.setProperty("useUnicode", "true");
             //properties.setProperty("characterEncoding", "utf8");
             //properties.setProperty("characterSetResults", "utf8");

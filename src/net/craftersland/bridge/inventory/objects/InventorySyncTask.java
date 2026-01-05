@@ -27,6 +27,11 @@ public class InventorySyncTask extends BukkitRunnable {
 				if (p.isOnline() == true) {
 					inProgress = true;
 					DatabaseInventoryData data = pd.getInvMysqlInterface().getData(p);
+					if (data == null) {
+						inProgress = false;
+						this.cancel();
+						return;
+					}
 					if (data.getSyncStatus().matches("true")) {
 						pd.getInventoryDataHandler().setPlayerData(p, data, syncD, true);
 						inProgress = false;

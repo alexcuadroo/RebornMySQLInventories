@@ -18,7 +18,7 @@ public class InvMysqlInterface {
 		this.inv = inv;
 	}
 	
-	public boolean hasAccount(Player player) {
+	public synchronized boolean hasAccount(Player player) {
 		PreparedStatement preparedUpdateStatement = null;
 		ResultSet result = null;
 		Connection conn = inv.getDatabaseManager().getConnection();
@@ -51,7 +51,7 @@ public class InvMysqlInterface {
 		return false;
 	}
 	
-	public boolean createAccount(Player player) {
+	public synchronized boolean createAccount(Player player) {
 		PreparedStatement preparedStatement = null;
 		Connection conn = inv.getDatabaseManager().getConnection();
 		if (conn != null) {
@@ -83,7 +83,7 @@ public class InvMysqlInterface {
 		return false;
 	}
 	
-	public boolean setData(Player player, String inventory, String armor, String syncComplete) {
+	public synchronized boolean setData(Player player, String inventory, String armor, String syncComplete) {
 		if (!hasAccount(player)) {
 			createAccount(player);
 		}
@@ -118,7 +118,7 @@ public class InvMysqlInterface {
         return false;
 	}
 	
-	public boolean setSyncStatus(Player player, String syncStatus) {
+	public synchronized boolean setSyncStatus(Player player, String syncStatus) {
 		PreparedStatement preparedUpdateStatement = null;
 		Connection conn = inv.getDatabaseManager().getConnection();
 		if (conn != null) {
@@ -147,7 +147,7 @@ public class InvMysqlInterface {
         return false;
 	}
 	
-	public DatabaseInventoryData getData(Player player) {
+	public synchronized DatabaseInventoryData getData(Player player) {
 		if (!hasAccount(player)) {
 			createAccount(player);
 		}
