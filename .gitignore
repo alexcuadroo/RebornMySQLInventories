@@ -1,0 +1,23 @@
+# Archivos de compilación
+target/
+*.class
+*.jar
+!gradle-wrapper.jar
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+*.swp
+*.swo
+*~
+
+# Maven
+dependency-reduced-pom.xml
+
+# Sistema
+.DS_Store
+Thumbs.db
