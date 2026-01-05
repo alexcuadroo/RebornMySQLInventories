@@ -17,7 +17,7 @@ public class BackgroundTask {
 	
 	private void runTask() {
 		if (m.getConfigHandler().getBoolean("General.saveDataTask.enabled") == true) {
-			Inv.log.info("Data save task is enabled.");
+			Inv.log.info("La tarea de guardar datos está habilitada.");
 			Bukkit.getScheduler().runTaskTimerAsynchronously(m, new Runnable() {
 
 				@Override
@@ -27,7 +27,7 @@ public class BackgroundTask {
 				
 			}, m.getConfigHandler().getInteger("General.saveDataTask.interval") * 60 * 20L, m.getConfigHandler().getInteger("General.saveDataTask.interval") * 60 * 20L);
 		} else {
-			Inv.log.info("Data save task is disabled.");
+			Inv.log.info("La tarea de guardar datos está deshabilitada.");
 		}
 	}
 	
@@ -36,7 +36,7 @@ public class BackgroundTask {
 			if (Bukkit.getOnlinePlayers().isEmpty() == false) {
 				List<Player> onlinePlayers = new ArrayList<Player>(Bukkit.getOnlinePlayers());
 				if (m.getConfigHandler().getBoolean("General.saveDataTask.hideLogMessages") == false) {
-					Inv.log.info("Saving online players data...");
+					Inv.log.info("Guardando datos de jugadores en línea...");
 				}
 				for (Player p : onlinePlayers) {
 					if (p.isOnline() == true) {
@@ -44,7 +44,7 @@ public class BackgroundTask {
 					}
 				}
 				if (m.getConfigHandler().getBoolean("General.saveDataTask.hideLogMessages") == false) {
-					Inv.log.info("Data save complete for " + onlinePlayers.size() + " players.");
+					Inv.log.info("Guardado de datos completado para " + onlinePlayers.size() + " jugadores.");
 				}
 				onlinePlayers.clear();
 			}
@@ -52,7 +52,7 @@ public class BackgroundTask {
 	}
 	
 	public void onShutDownDataSave() {
-		Inv.log.info("Saving online players data...");
+		Inv.log.info("Guardando datos de jugadores en línea...");
 		List<Player> onlinePlayers = new ArrayList<Player>(Bukkit.getOnlinePlayers());
 		
 		for (Player p : onlinePlayers) {
@@ -60,7 +60,7 @@ public class BackgroundTask {
 				m.getInventoryDataHandler().onDataSaveFunction(p, false, "true", null, null);
 			}
 		}
-		Inv.log.info("Data save complete for " + onlinePlayers.size() + " players.");
+		Inv.log.info("Guardado de datos completado para " + onlinePlayers.size() + " jugadores.");
 	}
 
 }
