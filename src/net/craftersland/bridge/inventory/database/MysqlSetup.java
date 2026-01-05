@@ -26,7 +26,7 @@ public class MysqlSetup {
 	}
 	
 	public void connectToDatabase() {
-		Inv.log.info("Connecting to the database...");
+		Inv.log.info("Conectando a la base de datos...");
 		try {
        	 	//Load Drivers
             Class.forName("com.mysql.jdbc.Driver");
@@ -41,13 +41,13 @@ public class MysqlSetup {
             conn = DriverManager.getConnection("jdbc:mysql://" + eco.getConfigHandler().getString("database.mysql.host") + ":" + eco.getConfigHandler().getString("database.mysql.port") + "/" + eco.getConfigHandler().getString("database.mysql.databaseName"), properties);
            
           } catch (ClassNotFoundException e) {
-        	  Inv.log.severe("Could not locate drivers for mysql! Error: " + e.getMessage());
+        	  Inv.log.severe("No se pudieron localizar los controladores para mysql! Error: " + e.getMessage());
             return;
           } catch (SQLException e) {
-        	  Inv.log.severe("Could not connect to mysql database! Error: " + e.getMessage());
+        	  Inv.log.severe("No se pudo conectar a la base de datos mysql! Error: " + e.getMessage());
             return;
           }
-		Inv.log.info("Database connection successful!");
+		Inv.log.info("Conexión a la base de datos exitosa!");
 	}
 	
 	public void setupDatabase() {
@@ -80,19 +80,19 @@ public class MysqlSetup {
 	public void checkConnection() {
 		try {
 			if (conn == null) {
-				Inv.log.warning("Connection failed. Reconnecting...");
+				Inv.log.warning("Conexión a la base de datos nula. Reintentando...");
 				reConnect();
 			}
 			if (!conn.isValid(3)) {
-				Inv.log.warning("Connection is idle or terminated. Reconnecting...");
+				Inv.log.warning("Conexión inactiva o terminada. Reintentando...");
 				reConnect();
 			}
 			if (conn.isClosed() == true) {
-				Inv.log.warning("Connection is closed. Reconnecting...");
+				Inv.log.warning("Conexión cerrada. Reintentando...");
 				reConnect();
 			}
 		} catch (Exception e) {
-			Inv.log.severe("Could not reconnect to Database! Error: " + e.getMessage());
+			Inv.log.severe("No se pudo reconectar a la base de datos! Error: " + e.getMessage());
 		}
 	}
 	
@@ -102,7 +102,7 @@ public class MysqlSetup {
 			long end = 0;
 			
 		    start = System.currentTimeMillis();
-		    Inv.log.info("Attempting to establish a connection to the MySQL server!");
+		    Inv.log.info("Intentando establecer una conexión con el servidor MySQL!");
             Class.forName("com.mysql.jdbc.Driver");
             Properties properties = new Properties();
             properties.setProperty("user", eco.getConfigHandler().getString("database.mysql.user"));
@@ -117,18 +117,18 @@ public class MysqlSetup {
             //properties.setProperty("connectionCollation", "utf8mb4_unicode_ci");
             conn = DriverManager.getConnection("jdbc:mysql://" + eco.getConfigHandler().getString("database.mysql.host") + ":" + eco.getConfigHandler().getString("database.mysql.port") + "/" + eco.getConfigHandler().getString("database.mysql.databaseName"), properties);
 		    end = System.currentTimeMillis();
-		    Inv.log.info("Connection to MySQL server established!");
-		    Inv.log.info("Connection took " + ((end - start)) + "ms!");
+		    Inv.log.info("Conexión al servidor MySQL establecida!");
+		    Inv.log.info("La conexión tomó " + ((end - start)) + "ms!");
             return true;
 		} catch (Exception e) {
-			Inv.log.severe("Error re-connecting to the database! Error: " + e.getMessage());
+			Inv.log.severe("Error al reconectar a la base de datos! Error: " + e.getMessage());
 			return false;
 		}
 	}
 	
 	public void closeConnection() {
 		try {
-			Inv.log.info("Closing database connection...");
+			Inv.log.info("Cerrando conexión a la base de datos...");
 			conn.close();
 			conn = null;
 		} catch (SQLException e) {

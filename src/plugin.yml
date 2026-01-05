@@ -1,9 +1,9 @@
-name: MysqlInventoryBridge
+name: RebornMySQLInventories
 main: net.craftersland.bridge.inventory.Inv
-version: 2.4.1
-author: CraftersLand
-website: www.craftersland.net
+version: 2.5.0
+author: Brunyman (Original) | Reborn Community (1.21) by alexcuadroo
+website: https://github.com/brunyman/InventoryBridge
 load: STARTUP
-api-version: 1.13
-description: Sync players inventorys over many servers using MySQL.
+api-version: 1.21
+description: Sincroniza inventarios de jugadores entre múltiples servidores usando MySQL.
 softdepend: [ProtocolLib]

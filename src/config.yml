@@ -56,9 +56,9 @@ Debug:
     InventorySync: false
     
 
-#Chat Messages with full color and format codes support. Disable any message by setting it to ''  |  Example>  syncComplete: ''
-#Minecraft Color and Format Codes: http://minecraft.gamepedia.com/Formatting_codes
+#Mensajes de chat con soporte completo de códigos de color y formato. Desactiva cualquier mensaje estableciéndolo a ''  |  Ejemplo>  syncComplete: ''
+#Códigos de Color y Formato de Minecraft: http://minecraft.gamepedia.com/Formatting_codes
 ChatMessages:
-    syncComplete: '&2[MIB] &aData sync complete!'
-    inventorySyncError: '&4[WARNING] &cError loading your inventory! Contact the staff team.'
-    inventorySyncBackup: '&6[!] &eRestored the local inventory! Don''t leave items in your inventory when you disconnect!'
+    syncComplete: '&2[RMI] &a¡Sincronización de datos completa!'
+    inventorySyncError: '&4[ADVERTENCIA] &c¡Error al cargar tu inventario! Contacta con el equipo del servidor.'
+    inventorySyncBackup: '&6[!] &e¡Inventario local restaurado! No dejes objetos en tu inventario al desconectarte!'

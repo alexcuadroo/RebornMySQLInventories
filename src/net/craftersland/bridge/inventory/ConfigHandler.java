@@ -18,14 +18,14 @@ public class ConfigHandler {
     	}
 		File configFile = new File(inv.getDataFolder() + System.getProperty("file.separator") + "config.yml");
 		if (configFile.exists() == false) {
-			Inv.log.info("No config file found! Creating new one...");
+			Inv.log.info("¡No se encontró archivo de configuración! Creando uno nuevo...");
 			inv.saveDefaultConfig();
 		}
     	try {
-    		Inv.log.info("Loading the config file...");
+    		Inv.log.info("Cargando archivo de configuración...");
     		inv.getConfig().load(configFile);
     	} catch (Exception e) {
-    		Inv.log.severe("Could not load the config file! You need to regenerate the config! Error: " + e.getMessage());
+    		Inv.log.severe("¡No se pudo cargar el archivo de configuración! Necesitas regenerar el config. Error: " + e.getMessage());
 			e.printStackTrace();
     	}
 	}
@@ -44,7 +44,7 @@ public class ConfigHandler {
 			inv.getLogger().severe("Could not locate " + key + " in the config.yml inside of the " + Inv.pluginName + " folder! (Try generating a new one by deleting the current)");
 			return "errorCouldNotLocateInConfigYml:" + key;
 		} else {
-			return inv.getConfig().getString(key).replaceAll("&", "�");
+			return inv.getConfig().getString(key).replaceAll("&", "§");
 		}
 	}
 	

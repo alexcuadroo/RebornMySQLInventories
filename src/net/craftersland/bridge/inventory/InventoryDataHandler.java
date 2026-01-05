@@ -47,7 +47,6 @@ public class InventoryDataHandler {
 				if (pd.getConfigHandler().getBoolean("General.syncArmorEnabled") == true) {
 					setInventory(p, data, syncData);
 				} else if (pd.getConfigHandler().getBoolean("General.syncArmorEnabled") == false) {
-					//TODO fix
 					setInventoryNew(p, data, syncData);
 				}
 			}
@@ -139,14 +138,12 @@ public class InventoryDataHandler {
 		syncData.setBackupArmor(p.getInventory().getArmorContents());
 		p.setItemOnCursor(null);
 		p.getInventory().clear();
-		p.updateInventory();
 		if (pd.getConfigHandler().getBoolean("General.syncArmorEnabled") == true) {
 			syncData.setBackupArmor(p.getInventory().getArmorContents());
 			p.getInventory().setHelmet(null);
 			p.getInventory().setChestplate(null);
 			p.getInventory().setLeggings(null);
 			p.getInventory().setBoots(null);
-			p.updateInventory();
 		}
 	}
 	
@@ -197,7 +194,6 @@ public class InventoryDataHandler {
 			}
 			p.getInventory().setContents(syncData.getBackupInventory());
 		}
-		p.updateInventory();
 	}
 	
 	private void setInventoryNew(final Player p, DatabaseInventoryData data, InventorySyncData syncData) {
@@ -236,7 +232,6 @@ public class InventoryDataHandler {
 			}
 			p.getInventory().setContents(syncData.getBackupInventory());
 		}
-		p.updateInventory();
 	}
 	
 	private void setArmor(final Player p, DatabaseInventoryData data, InventorySyncData syncData) {
@@ -255,7 +250,6 @@ public class InventoryDataHandler {
 		}
 		p.updateInventory();
 	}
-	
 	public String encodeItems(ItemStack[] items) {
 		if (pd.useProtocolLib == true && pd.getConfigHandler().getBoolean("General.enableModdedItemsSupport") == true) {
 			return InventoryUtils.saveModdedStacksData(items);

@@ -16,9 +16,9 @@ public class SoundHandler {
 			if (Inv.is13Server == true) {
 				p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 3F, 3F);
 			} else if (Inv.is19Server == true) {
-				p.playSound(p.getLocation(), Sound.valueOf("BLOCK_NOTE_PLING"), 3F, 3F);
+				p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 3F, 3F);
 			} else {
-				p.playSound(p.getLocation(), Sound.valueOf("NOTE_PLING"), 3F, 3F);
+				p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 3F, 3F);
 			}
 		}
 	}
@@ -28,7 +28,7 @@ public class SoundHandler {
 			if (Inv.is19Server == true) {
 				p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1F, 1F);
 			} else {
-				p.playSound(p.getLocation(), Sound.valueOf("LEVEL_UP"), 1F, 1F);
+				p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1F, 1F);
 			}
 		}
 	}
@@ -38,7 +38,7 @@ public class SoundHandler {
 			if (Inv.is19Server == true) {
 				p.playSound(p.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 3F, 3F);
 			} else {
-				p.playSound(p.getLocation(), Sound.valueOf("SUCCESSFUL_HIT"), 3F, 3F);
+				p.playSound(p.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 3F, 3F);
 			}
 		}
 	}
