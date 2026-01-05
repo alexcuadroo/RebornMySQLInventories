@@ -2,7 +2,7 @@
 
 Plugin de Minecraft para sincronizar inventarios de jugadores entre múltiples servidores usando MySQL. Fork de https://github.com/brunyman
 
-**Versión:** 2.5.0-1.21  
+**Versión:** 2.5.x-1.21  
 **Minecraft:** 1.21+ (Spigot/Paper)  
 **Java:** 21
 ---
@@ -16,9 +16,9 @@ Sincroniza automáticamente el inventario y armadura de los jugadores a través 
 ## Requisitos
 
 ### Obligatorios:
-- ✅ Servidor Spigot/Paper 1.21+
-- ✅ Java 21
-- ✅ Servidor MySQL o MariaDB
+- Servidor Spigot/Paper 1.21+
+- Java 21
+- Servidor MySQL o MariaDB
 
 ### Opcionales:
 - **ProtocolLib** - Solo necesario si usas items con datos NBT personalizados (mods, plugins custom, etc.)
@@ -47,7 +47,7 @@ FLUSH PRIVILEGES;
 
 ### 2. Instalar el plugin
 
-1. Descarga el JAR compilado: `RebornMySQLInventories-2.5.0-1.21.jar`
+1. Descarga el JAR compilado: `RebornMySQLInventories-x.x.x-1.21.jar`
 2. Coloca el archivo en la carpeta `plugins/` de **cada servidor** que quieras sincronizar
 3. **(Opcional)** Si necesitas soporte de items con NBT, instala [ProtocolLib](https://www.spigotmc.org/resources/protocollib.1997/) en todos los servidores
 
@@ -212,7 +212,7 @@ cd MysqlInventoryBridge
 mvn clean package
 
 # El JAR estará en:
-# target/RebornMySQLInventories-2.5.0-1.21.jar
+# target/RebornMySQLInventories-x.x.x-1.21.jar
 ```
 
 **Requisitos para compilar:**
@@ -228,15 +228,6 @@ mvn clean package
 3. **No cambies `enableModdedItemsSupport`** en servidores en producción sin backup
 4. **Todos los servidores deben usar la misma configuración** de soporte NBT
 5. Este plugin **solo funciona en Minecraft 1.21+**, no soporta versiones anteriores
-
----
-
-## Notas de la versión 2.5.0
-
-- ✅ Actualizado a Java 21
-- ✅ Eliminados métodos deprecados (`updateInventory()`)
-- ✅ Mejorado sistema de detección de versiones
-- ✅ Compatibilidad con API moderna de Spigot
 
 ---
 
